@@ -1,0 +1,10 @@
+package com.klef.soa.exam.service;
+
+import com.klef.soa.exam.entity.LaundryPickupEntity;
+
+public interface LaundryPickupService 
+{
+	 LaundryPickupEntity addPatient(Patient patient);
+	    List<Patient>displayAllPatients();
+
+}

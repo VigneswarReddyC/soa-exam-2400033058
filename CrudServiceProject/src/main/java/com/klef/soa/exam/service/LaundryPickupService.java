@@ -1,0 +1,14 @@
+package com.klef.soa.exam.service;
+
+import java.util.List;
+
+import com.klef.soa.exam.entity.LaundryPickupEntity;
+
+public interface LaundryPickupService 
+{
+	 LaundryPickupEntity addlaundry(LaundryPickupEntity laundry);
+	   List<LaundryPickupEntity> displayallLaundry();
+	   
+	   String deleteLaundryById(Long id);
+
+}

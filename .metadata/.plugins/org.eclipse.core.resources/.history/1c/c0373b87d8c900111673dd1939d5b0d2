@@ -1,0 +1,56 @@
+package com.klef.soa.exam.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.klef.soa.exam.entity.LaundryPickupEntity;
+import com.klef.soa.exam.service.LaundryPickupService;
+
+@RestController
+@RequestMapping("/laundrypickup")
+public class LaundryPickupController 
+{
+	
+	
+	@Autowired
+	private LaundryPickupService service;
+
+	@GetMapping("/")
+	public String test()
+	{
+		return "CRUD Service is running";
+	}
+	
+	
+		@PostMapping("/add") 
+		public ResponseEntity<LaundryPickupEntity> addLaundry(@RequestBody LaundryPickupEntity p) 
+		{ 
+			LaundryPickupEntity laundry = service.addlaundry(p); 
+			return ResponseEntity.status(201).body(laundry); 
+		}
+		
+		
+		@GetMapping("/displayall")
+		public ResponseEntity<List<LaundryPickupEntity>> displayAllPatients()
+		{
+			List<LaundryPickupEntity> laundry = service.displayallLaundry(); 
+			return ResponseEntity.status(200).body(laundry);
+		}
+	
+		
+		@DeleteMapping("/delete/{id}")
+		public ResponseEntity<String> deletelaundrybyid(@PathVariable Long id)
+		{
+			String msg=service.de
+
+	        return new ResponseEntity<>(message, HttpStatus.OK);
+			
+		}
+}

@@ -1,0 +1,10 @@
+package com.klef.soa.exam.service;
+
+
+
+public interface LaundryPickupService 
+{
+	 Patient addPatient(Patient patient);
+	    List<Patient>displayAllPatients();
+
+}

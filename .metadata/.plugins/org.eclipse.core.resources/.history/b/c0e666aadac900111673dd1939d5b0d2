@@ -1,0 +1,53 @@
+package com.klef.soa.exam.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.klef.soa.exam.entity.LaundryPickupEntity;
+import com.klef.soa.exam.repository.LaundryPickupRepository;
+
+@Service
+public class LaundryPickupServiceImpl implements LaundryPickupService
+{
+	
+	@Autowired
+	private LaundryPickupRepository repo;
+	
+	@GetMapping("/")
+	public String test()
+	{
+		return "SOA Programming & MicroServices";
+	}
+
+
+	@Override
+	public LaundryPickupEntity addlaundry(LaundryPickupEntity laundry) {
+		
+		return repo.save(laundry);
+	}
+
+	@Override
+	public List<LaundryPickupEntity> displayallLaundry() {
+		// TODO Auto-generated method stub
+		return repo.findAll();
+	}
+
+	@Override
+	public String deleteLaundryById(Long id) {
+		boolean status = repo.existsById(id);
+		if(status) 
+		{
+			repo.deleteById(id);
+			return "Laundry Deleted Successfully";
+		}
+		else
+		{
+			return "laundry ID Not Found";
+		}
+	}
+	
+
+}

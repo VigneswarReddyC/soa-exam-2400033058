@@ -1,0 +1,29 @@
+package com.klef.soa.exam.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class LaundryPickupEntity
+{
+	
+	@Id
+	@Column(name="pid")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	@Column(name="pname",length=100,nullable=false)
+	private String name;
+	@Column(length=10,nullable=false)
+	private String gender;
+	@Column(name="pemail",length=100,nullable=false,unique=true)
+	private String email;
+	@Column(length=20,nullable=false,unique=true)
+	private String contact;
+	@Column(nullable=false)
+	private double age;
+	@Column(name="pstatus",nullable=false)
+	private boolean status;
+
+}
